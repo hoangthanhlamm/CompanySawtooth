@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message User {
+    string username = 1;
+    string public_key = 2;
+    enum Role {
+        ORG = 0;
+        DIRECTOR = 1;
+    }
+    Role role = 3;
+}
+
+message UserContainer {
+    repeated User entries = 1;
+}

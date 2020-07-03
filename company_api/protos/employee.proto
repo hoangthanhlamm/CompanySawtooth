@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Employee {
+    message Update {
+        uint64 timestamp = 1;
+        string age = 2;
+        string address = 3;
+        string email = 4;
+        string com_id = 5;
+    }
+    string id = 1;
+    string name = 2;
+    repeated Update updates = 3;
+}
+
+message EmployeeContainer {
+    repeated Employee entries = 1;
+}

@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+message SimpleSupplyPayload{
+    enum Action {
+        CREATE_USER = 0;
+        CREATE_COM = 1;
+        UPDATE_COM = 2;
+        GET_COM = 3;
+        CREATE_EMP = 4;
+        UPDATE_EMP = 5;
+        GET_EMP = 6;
+    }
+    Action action = 1;
+    uint64 timestamp = 2;
+    CreateUser create_user = 3;
+    CreateCom create_com = 4;
+    UpdateCom update_com = 5;
+    GetCom get_com = 6;
+    CreateEmp create_emp = 7;
+    UpdateEmp update_emp = 8;
+    GetEmp get_emp = 9;
+}
+
+
+message CreateUser {
+    enum Role {
+        ORG = 0;
+        DIRECTOR = 1;
+    }
+    string username = 1;
+    Role role = 2;
+}
+message CreateCom {
+    Role role = 1;
+    enum Role {
+        ORG = 0;
+    }
+    string id = 2;
+    string name = 3;
+}
+message UpdateCom {
+    Role role = 1;
+    enum Role {
+        ORG = 0;
+    }
+    string id = 2;
+    string establish = 3;
+    string address = 4;
+}
+message GetCom {
+    Role role = 1;
+    enum Role {
+        ORG = 0;
+    }
+    string id = 2;
+}
+message CreateEmp {
+    Role role = 1;
+    enum Role {
+        DIRECTOR = 0;
+    }
+    string id = 2;
+    string name = 3;
+}
+message UpdateEmp {
+    Role role = 1;
+    enum Role {
+        DIRECTOR = 0;
+    }
+    string id = 2;
+    string age = 3;
+    string address = 4;
+    string email = 5;
+    string com_id = 6;
+}
+message GetEmp {
+    Role role = 1;
+    enum Role {
+        DIRECTOR = 0;
+    }
+    string id = 2;
+}

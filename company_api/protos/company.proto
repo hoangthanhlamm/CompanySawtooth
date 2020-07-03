@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Company {
+    message Update {
+        uint64 timestamp = 1;
+        string establish = 2;
+        string address = 3;
+    }
+    string id = 1;
+    string name = 2;
+    repeated Update updates = 3;
+}
+
+message CompanyContainer {
+    repeated Company entries = 1;
+}
